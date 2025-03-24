@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="laptrinhmang.ltm_chat.controller.AddGroupController"
+            prefHeight="480.0" prefWidth="400.0" style="-fx-background-color: white;">
+
+    <!-- Tiêu đề -->
+    <Label text="Tạo nhóm" layoutX="20.0" layoutY="20.0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
+
+    <!-- Nhập tên nhóm -->
+    <TextField fx:id="groupNameField" promptText="Nhập tên nhóm..."
+               layoutX="20.0" layoutY="60.0" prefWidth="360.0"  style="-fx-background-color: white; -fx-border-color: #dcdcdc; -fx-border-radius: 5; -fx-background-radius: 5;"/>
+
+    <!-- Danh sách bạn bè -->
+    <ScrollPane layoutX="20.0" layoutY="105.0" prefHeight="300.0" prefWidth="360.0"
+                style="-fx-background-color: transparent; -fx-border-color: #dcdcdc; -fx-border-radius: 5; -fx-background-radius: 5;">
+        <VBox fx:id="friendListVBox" spacing="10.0" style="-fx-padding: 10;"/>
+    </ScrollPane>
+
+    <!-- Nút Hủy và Tạo Nhóm -->
+    <HBox layoutX="20.0" layoutY="430.0" prefWidth="360.0" spacing="10.0">
+        <Button text="Hủy" fx:id="cancelButton" prefWidth="180.0" style="-fx-background-color: #f0f0f0; -fx-border-color: #dcdcdc; -fx-border-radius: 5; -fx-background-radius: 5; -fx-text-fill: #333333;"/>
+        <Button text="Tạo nhóm" fx:id="createGroupButton" prefWidth="180.0" style="-fx-background-color: #4294e3; -fx-border-color: #4294e3; -fx-border-radius: 5; -fx-background-radius: 5; -fx-text-fill: white; -fx-font-weight: bold;" />
+    </HBox>
+</AnchorPane>
+
+
+

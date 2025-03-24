@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="laptrinhmang.ltm_chat.controller.EditGroupNameController"
+                prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: white;" >
+    <!-- Avatar của nhóm -->
+    <ImageView fx:id="groupAvatar" layoutX="170.0" layoutY="20.0" fitWidth="60.0" fitHeight="60.0" style="-fx-border-radius: 50%; -fx-border-color: black;">
+    </ImageView>
+    <!-- Thông báo -->
+    <Label text="Bạn có chắc chắn muốn đổi tên nhóm, khi xác nhận tên nhóm mới sẽ hiển thị với tất cả thành viên!!!."
+           wrapText="true" layoutX="20.0" layoutY="100.0" prefWidth="360.0" style="-fx-font-size: 14px;"/>
+
+    <!-- Ô nhập tên nhóm -->
+    <TextField fx:id="newGroupNameField" promptText="Nhập tên nhóm mới..." layoutX="20.0" layoutY="160.0" prefWidth="360.0"
+               style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-padding: 5; -fx-font-size: 14px;"/>
+
+    <!-- Nút Hủy và Xác Nhận -->
+    <HBox layoutX="20.0" layoutY="220.0" spacing="10.0" prefWidth="360.0">
+        <Button text="Hủy" fx:id="cancel" prefWidth="180.0" style="-fx-background-color: #cccccc; -fx-text-fill: black;"/>
+        <Button text="Xác nhận" fx:id="confirmButton" prefWidth="180.0" style="-fx-background-color: #4294e3; -fx-text-fill: white;"/>
+    </HBox>
+</AnchorPane>

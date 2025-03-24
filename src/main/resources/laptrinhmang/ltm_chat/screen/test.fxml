@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<Pane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laptrinhmang.ltm_chat.screen.Test">
+   <children>
+      <AnchorPane prefHeight="50.0" prefWidth="600.0">
+
+</AnchorPane>
+      <HBox prefHeight="96.0" prefWidth="600.0">
+         <children>
+            <Circle fill="WHITE" radius="25.0" stroke="#4c6ce1" strokeType="INSIDE">
+               <HBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </HBox.margin></Circle>
+            <VBox prefHeight="50.0" prefWidth="266.0" style="-fx-border-radius: 10; -fx-border-color: #56a1f5;">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="10.0" top="5.0" />
+               </HBox.margin>
+               <children>
+                  <Label prefHeight="18.0" prefWidth="280.0" text="Dang Hung">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="8.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="54.0" prefWidth="257.0" text="alo 123">
+                     <VBox.margin>
+                        <Insets left="8.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="259.0" text="10 - 10 - 2024 13:13:13">
+                     <VBox.margin>
+                        <Insets left="8.0" right="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</Pane>

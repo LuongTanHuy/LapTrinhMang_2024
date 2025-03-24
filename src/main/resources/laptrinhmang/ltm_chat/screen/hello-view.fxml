@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<StackPane xmlns="http://javafx.com/javafx/17.0.2-ea"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="laptrinhmang.ltm_chat.controller.ClientController">
+    <children>
+        <!--      chat-->
+        <Pane fx:id="P_Chat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+              prefHeight="500.0" prefWidth="950.0">
+            <children>
+                <SplitPane dividerPositions="0.29797979797979796" prefHeight="500.0" prefWidth="950.0">
+                    <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="150.0">
+                            <children>
+                                <VBox prefHeight="498.0" prefWidth="279.0">
+                                    <children>
+                                        <!-- Search bar with buttons -->
+                                        <HBox fx:id="searchBar" prefHeight="55.0" prefWidth="279.0" style="-fx-background-color: #4294e3;">
+                                            <children>
+                                                <TextField fx:id="TF_Search" prefHeight="26.0" prefWidth="230.0" promptText="Tìm Kiếm ...">
+                                                    <HBox.margin>
+                                                        <Insets left="10.0" top="15.0"/>
+                                                    </HBox.margin>
+                                                </TextField>
+<!--                                                <Button fx:id="BT_AddFriend" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0">-->
+<!--                                                    <HBox.margin>-->
+<!--                                                        <Insets left="5.0" top="15.0"/>-->
+<!--                                                    </HBox.margin>-->
+<!--                                                </Button>-->
+                                                <Button fx:id="BT_AddGroup" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0">
+                                                    <HBox.margin>
+                                                        <Insets top="15.0"/>
+                                                    </HBox.margin>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+
+                                        <ListView fx:id="LV_SearchResults"  prefHeight="443.0" prefWidth="279.0" visible="false" managed="false"  />
+
+                                        <VBox fx:id="mainContent" visible="true">
+                                            <ScrollPane hbarPolicy="NEVER" prefHeight="422.0" prefWidth="272.0" vbarPolicy="NEVER">
+                                                <content>
+                                                    <VBox fx:id="VB_Menu" prefHeight="419.0" prefWidth="277.0" style="-fx-background-color: #fff;"/>
+                                                </content>
+                                            </ScrollPane>
+                                            <!-- Info panel -->
+                                            <HBox fx:id="infoPanel" prefHeight="46.0" prefWidth="279.0" style="-fx-background-color: #4294e3;">
+                                                <children>
+                                                    <Label fx:id="LB_FullName" alignment="CENTER" prefHeight="38.0" prefWidth="99.0"
+                                                           text="Dang Hung" textFill="WHITE">
+                                                        <font>
+                                                            <Font name="System Bold Italic" size="14.0"/>
+                                                        </font>
+                                                    </Label>
+                                                    <VBox prefHeight="46.0" prefWidth="100.0">
+                                                        <children>
+                                                            <Label fx:id="LB_Friend" prefHeight="21.0" prefWidth="100.0" textFill="WHITE"/>
+                                                            <Label fx:id="LB_Group" prefHeight="18.0" prefWidth="149.0" textFill="WHITE"/>
+                                                        </children>
+                                                    </VBox>
+                                                    <Button fx:id="BT_LogOut" mnemonicParsing="false" onAction="#handleLogOut"
+                                                            prefHeight="31.0" prefWidth="38.0" style="-fx-background-color: #4294e3;" textFill="WHITE">
+                                                        <HBox.margin>
+                                                            <Insets left="10.0" top="7.0"/>
+                                                        </HBox.margin>
+                                                    </Button>
+                                                </children>
+                                            </HBox>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="670.0" >
+                            <children>
+                                <StackPane prefHeight="498.0" prefWidth="664.0">
+                                    <children>
+                                        <Pane fx:id="P_Hello" prefHeight="200.0" prefWidth="200.0"
+                                              style="-fx-background-color: #fff;">
+                                            <children>
+                                                <VBox layoutX="175.0" prefHeight="498.0" prefWidth="335.0">
+                                                    <children>
+                                                        <ImageView fx:id="IM_Hello" fitHeight="212.0" fitWidth="337.0"
+                                                                   pickOnBounds="true" preserveRatio="true">
+                                                            <VBox.margin>
+                                                                <Insets top="50.0"/>
+                                                            </VBox.margin>
+                                                        </ImageView>
+                                                        <Label fx:id="LB_Hello" alignment="CENTER" prefHeight="145.0"
+                                                               prefWidth="338.0" textFill="#afb4b4">
+                                                            <font>
+                                                                <Font name="System Bold Italic" size="24.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </Pane>
+                                        <!--                               Chat-->
+                                        <Pane fx:id="P_FrameChat" prefHeight="200.0" prefWidth="200.0">
+                                            <children>
+                                                <VBox prefHeight="498.0" prefWidth="664.0">
+                                                    <children>
+                                                        <HBox prefHeight="24.0" prefWidth="664.0"
+                                                              style="-fx-background-color: #ffffff;">
+                                                            <children>
+                                                                <ImageView fx:id="iconAvatar" fitHeight="45.0"
+                                                                           fitWidth="45.0" pickOnBounds="true"
+                                                                           preserveRatio="true">
+                                                                    <HBox.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0"
+                                                                                top="5.0"/>
+                                                                    </HBox.margin>
+                                                                </ImageView>
+                                                                <VBox prefHeight="55.0" prefWidth="448.0">
+                                                                    <children>
+                                                                        <Label fx:id="LB_Chat" prefHeight="42.0"
+                                                                               prefWidth="448.0" textAlignment="CENTER">
+                                                                            <font>
+                                                                                <Font size="16.0"/>
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label prefHeight="28.0" prefWidth="448.0"
+                                                                               text="Đang hoạt động"/>
+                                                                    </children>
+                                                                </VBox>
+                                                                <HBox prefHeight="55.0" prefWidth="150.0">
+                                                                    <children>
+                                                                        <Label prefHeight="55.0" prefWidth="148.0"/>
+                                                                        <Button fx:id="BT_Trash"
+                                                                                onAction="#startRemoveGroup"
+                                                                                alignment="CENTER" layoutX="10.0"
+                                                                                layoutY="10.0" prefHeight="55.0"
+                                                                                prefWidth="101.0"
+                                                                                style="-fx-background-color: #ffffff;"/>
+                                                                        <Button fx:id="BT_Edit"
+                                                                                onAction="#startRenameGroupWindow"
+                                                                                alignment="CENTER" layoutX="10.0"
+                                                                                layoutY="10.0" prefHeight="55.0"
+                                                                                prefWidth="101.0"
+                                                                                style="-fx-background-color: #ffffff;"/>
+                                                                        <Button fx:id="BT_CallVideo"
+                                                                                onAction="#startCallVideo"
+                                                                                alignment="CENTER" layoutX="10.0"
+                                                                                layoutY="10.0" prefHeight="55.0"
+                                                                                prefWidth="101.0"
+                                                                                style="-fx-background-color: #ffffff;"/>
+                                                                        <Button fx:id="BT_AddMember" alignment="CENTER"
+                                                                                layoutX="10.0" layoutY="10.0"
+                                                                                prefHeight="55.0" prefWidth="101.0"
+                                                                                style="-fx-background-color: #fff;"/>
+                                                                        <Button fx:id="BT_DeleteMember" alignment="CENTER"
+                                                                                layoutX="10.0" layoutY="10.0"
+                                                                                prefHeight="55.0" prefWidth="101.0"
+                                                                                style="-fx-background-color: #fff;"/>
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </HBox>
+                                                        <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER"
+                                                                    prefHeight="396.0" prefWidth="664.0"
+                                                                    vbarPolicy="NEVER">
+                                                            <content>
+                                                                <VBox fx:id="VB_Chat" prefHeight="396.0"
+                                                                      prefWidth="663.0"
+                                                                      style="-fx-background-color: #e6e6e6;"/>
+                                                            </content>
+                                                        </ScrollPane>
+                                                        <!--icon-->
+                                                        <Pane prefHeight="48.0" prefWidth="664.0" style="-fx-background-color: #f5f5f5;">
+                                                            <children>
+                                                                <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="664.0" spacing="10.0" style="-fx-padding: 10;">
+                                                                    <children>
+                                                                        <!-- Message TextField -->
+                                                                        <TextField fx:id="TF_Message" prefHeight="30.0" prefWidth="480.0" promptText="Nhập tin nhắn . . ."
+                                                                                   style="-fx-background-radius: 8; -fx-border-radius: 15; -fx-padding: 5 10;"/>
+
+                                                                        <!-- Nút Send -->
+                                                                        <Button fx:id="BT_SendChat" mnemonicParsing="false" onAction="#handleSendMessageChat"
+                                                                                style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 5; -fx-cursor: hand;"
+                                                                                >
+                                                                            <graphic>
+                                                                                <FontIcon iconLiteral="fas-paper-plane" />
+                                                                            </graphic>
+                                                                        </Button>
+
+                                                                        <!-- Nút File -->
+                                                                        <Button fx:id="BT_File" mnemonicParsing="false" onAction="#handleFileChoose"
+                                                                                style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 5; -fx-cursor: hand;"
+                                                                                >
+                                                                            <graphic>
+                                                                                <FontIcon iconLiteral="fas-paperclip" />
+                                                                            </graphic>
+                                                                        </Button>
+
+                                                                        <!-- Nút Audio -->
+                                                                        <Button fx:id="BT_Audio" mnemonicParsing="false" onAction="#handleFileAudio"
+                                                                                style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 5; -fx-cursor: hand;"
+                                                                                >
+                                                                            <graphic>
+                                                                                <FontIcon iconLiteral="fas-microphone"  />
+                                                                            </graphic>
+                                                                        </Button>
+
+                                                                        <!-- Nút Emoji -->
+                                                                        <Button fx:id="BT_Emoji" mnemonicParsing="false" onAction="#handleChooseEmoji"
+                                                                                style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 5; -fx-cursor: hand;"
+                                                                                >
+                                                                            <graphic>
+                                                                                <FontIcon iconLiteral="fas-smile"  />
+                                                                            </graphic>
+                                                                        </Button>
+
+                                                                    </children>
+                                                                </HBox>
+                                                                <AnchorPane fx:id="emojiPane" visible="false" layoutX="380.0" layoutY="-260.0" prefWidth="250" prefHeight="200"
+                                                                            style="-fx-background-color: #f8f7f7; -fx-border-color: #fbfafa; -fx-border-radius: 5;">
+                                                                    <GridPane fx:id="emojiGrid" hgap="10" vgap="10" layoutX="5.0" layoutY="5.0"/>
+                                                                </AnchorPane>
+
+                                                            </children>
+                                                        </Pane>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </Pane>
+                                    </children>
+                                </StackPane>
+                            </children>
+                        </AnchorPane>
+                    </items>
+                </SplitPane>
+            </children>
+        </Pane>
+        <!--      Login-->
+        <Pane fx:id="P_Login" layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="950.0"
+              style="-fx-background-color: #f0f4f7;">
+            <children>
+                <VBox layoutX="280.0" layoutY="50.0" prefHeight="400.0" prefWidth="400.0"
+                      style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 4);">
+                    <children>
+                        <!-- Tiêu đề -->
+                        <Label alignment="CENTER" prefHeight="80.0" prefWidth="400.0" text="ĐĂNG NHẬP"
+                               textAlignment="CENTER" textFill="#2c3e50" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-padding: 20 0 0 0;">
+                        </Label>
+
+                        <!-- Form nhập thông tin -->
+                        <VBox spacing="15.0" alignment="CENTER" prefHeight="300.0" prefWidth="400.0" style="-fx-padding: 20;">
+                            <children>
+                                <!-- Số Điện Thoại -->
+                                <VBox spacing="5.0" alignment="CENTER_LEFT">
+                                    <Label text="Số Điện Thoại" textFill="#34495e" style="-fx-font-size: 13; -fx-font-weight: bold;">
+                                    </Label>
+                                    <TextField fx:id="TF_Phone_LG" prefWidth="300.0"
+                                               style="-fx-background-color: #f9fafb; -fx-border-color: #d1d5db; -fx-border-radius: 8; -fx-padding: 5;">
+                                    </TextField>
+                                </VBox>
+
+                                <!-- Mật Khẩu -->
+                                <VBox spacing="5.0" alignment="CENTER_LEFT">
+                                    <Label text="Mật Khẩu" textFill="#34495e" style="-fx-font-size: 13; -fx-font-weight: bold;">
+                                    </Label>
+                                    <PasswordField fx:id="TF_Password_LG" prefWidth="300.0"
+                                                   style="-fx-background-color: #f9fafb; -fx-border-color: #d1d5db; -fx-border-radius: 8; -fx-padding: 5;">
+                                    </PasswordField>
+                                </VBox>
+                            </children>
+                        </VBox>
+
+                        <!-- Nút "Đăng Nhập" và chuyển sang giao diện Đăng Ký -->
+                        <VBox alignment="CENTER" spacing="10.0">
+                            <Button text="Đăng Nhập" onAction="#handleLogin" prefWidth="150.0"
+                                    style="-fx-background-color: #1e3a8a; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-size: 14; -fx-font-weight: bold;">
+                            </Button>
+                            <Button alignment="CENTER" onAction="#showView" prefHeight="26.0" prefWidth="350.0"
+                                    style="-fx-background-color: transparent; -fx-text-fill: #2980b9; -fx-font-size: 13; -fx-underline: true;"
+                                    text="Bạn chưa có Tài Khoản ? Đăng Ký"
+                                    textFill="#c49393">
+                                <VBox.margin>
+                                    <Insets top="60.0"/>
+                                </VBox.margin>
+                            </Button>
+                        </VBox>
+                    </children>
+                </VBox>
+            </children>
+        </Pane>
+
+        <!--      SignUp-->
+        <Pane fx:id="P_SignUp" layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="950.0"
+              style="-fx-background-color: #f0f4f7;">
+            <children>
+                <VBox layoutX="280.0" layoutY="50.0" prefHeight="400.0" prefWidth="400.0"
+                      style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 4);">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="80.0" prefWidth="400.0" text="ĐĂNG KÝ"
+                               textAlignment="CENTER" textFill="#2c3e50" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-padding: 20 0 0 0;">
+                        </Label>
+                        <VBox spacing="15.0" alignment="CENTER" prefHeight="300.0" prefWidth="400.0" style="-fx-padding: 20;">
+                            <children>
+                                <!-- Số Điện Thoại -->
+                                <VBox spacing="5.0" alignment="CENTER_LEFT">
+                                    <Label text="Số Điện Thoại" textFill="#34495e" style="-fx-font-size: 13; -fx-font-weight: bold;">
+                                    </Label>
+                                    <TextField fx:id="TF_Phone_SN" prefWidth="300.0" style="-fx-background-radius: 8; -fx-padding: 5;">
+                                    </TextField>
+                                </VBox>
+
+                                <!-- Họ Tên -->
+                                <VBox spacing="5.0" alignment="CENTER_LEFT">
+                                    <Label text="Họ Tên" textFill="#34495e" style="-fx-font-size: 13; -fx-font-weight: bold;">
+                                    </Label>
+                                    <TextField fx:id="TF_FullName_SN1" prefWidth="300.0" style="-fx-background-radius: 8; -fx-padding: 5;">
+                                    </TextField>
+                                </VBox>
+
+                                <!-- Mật Khẩu -->
+                                <VBox spacing="5.0" alignment="CENTER_LEFT">
+                                    <Label text="Mật Khẩu" textFill="#34495e" style="-fx-font-size: 13; -fx-font-weight: bold;">
+                                    </Label>
+                                    <PasswordField fx:id="TF_Password_SN1" prefWidth="300.0" style="-fx-background-radius: 8; -fx-padding: 5;">
+                                    </PasswordField>
+                                </VBox>
+
+                                <!-- Nhập Lại Mật Khẩu -->
+                                <VBox spacing="5.0" alignment="CENTER_LEFT">
+                                    <Label text="Nhập Lại Mật Khẩu" textFill="#34495e" style="-fx-font-size: 13; -fx-font-weight: bold;">
+                                    </Label>
+                                    <PasswordField fx:id="TF_Password_SN2" prefWidth="300.0" style="-fx-background-radius: 8; -fx-padding: 5;">
+                                    </PasswordField>
+                                </VBox>
+                            </children>
+                        </VBox>
+
+                        <!-- Nút "Xong" và "Đăng Nhập" -->
+                        <VBox alignment="CENTER" spacing="10.0">
+                            <Button text="Đăng ký" onAction="#handleSignUp" prefWidth="150.0"
+                                    style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-size: 14; -fx-font-weight: bold;">
+                            </Button>
+                            <Button text="Bạn đã có Tài Khoản ? Đăng Nhập" onAction="#showView"
+                                    style="-fx-background-color: transparent; -fx-text-fill: #2980b9; -fx-font-size: 13; -fx-underline: true;">
+                            </Button>
+                        </VBox>
+                    </children>
+                </VBox>
+            </children>
+        </Pane>
+
+    </children>
+</StackPane>

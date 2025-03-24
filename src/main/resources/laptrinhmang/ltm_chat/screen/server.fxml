@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="laptrinhmang.ltm_chat.controller.ServerController">
+   <children>
+      <Pane prefHeight="500.0" prefWidth="950.0">
+         <children>
+            <SplitPane dividerPositions="0.1636546184738956" orientation="VERTICAL" prefHeight="500.0" prefWidth="950.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <HBox prefHeight="78.0" prefWidth="950.0" style="-fx-background-color: #fff;">
+                           <children>
+                              <VBox prefHeight="74.0" prefWidth="196.0">
+                                 <children>
+                                    <Label fx:id="LB_IP" prefHeight="30.0" prefWidth="196.0" style="-fx-background-color: #fff;" textAlignment="CENTER" textFill="#8c7979">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="190.0">
+                                       <children>
+                                          <Label prefHeight="36.0" prefWidth="50.0" text="PORT:" textAlignment="CENTER" textFill="#8c7979">
+                                             <font>
+                                                <Font name="System Bold Italic" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="TF_Port" prefHeight="15.0" prefWidth="90.0" promptText="Enter Port ...">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <HBox prefHeight="74.0" prefWidth="468.0">
+                                 <children>
+                                    <VBox prefHeight="78.0" prefWidth="148.0">
+                                       <children>
+                                          <Label fx:id="LB_StatusServer" layoutX="10.0" layoutY="10.0" prefHeight="78.0" prefWidth="158.0" textAlignment="CENTER">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="LB_QuantityClient" prefHeight="78.0" prefWidth="158.0" textAlignment="CENTER">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <Button fx:id="BT_Run" mnemonicParsing="false" onAction="#startServer" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: green;" textAlignment="CENTER" textFill="WHITE">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="20.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="BT_Stop" layoutX="212.0" layoutY="30.0" mnemonicParsing="false" onAction="#stopServer" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: red;" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </children></AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TableView fx:id="TB_User" prefHeight="414.0" prefWidth="950.0" style="-fx-background-color: #fff;">
+                          <columns>
+                            <TableColumn fx:id="TC_STT" prefWidth="42.199999272823334" text="ID" />
+                            <TableColumn fx:id="TC_IP" prefWidth="147.60000228881836" text="IP" />
+                              <TableColumn fx:id="TC_Client" prefWidth="98.80003356933594" text="Client" />
+                              <TableColumn fx:id="TC_TimeIn" prefWidth="132.0" text="Tham gia" />
+                              <TableColumn fx:id="TC_TimeOut" minWidth="0.0" prefWidth="125.79998779296875" text="Rời đi" />
+                              <TableColumn fx:id="TC_Status" prefWidth="151.0" text="Tình Trạng" />
+                              <TableColumn fx:id="TC_Lock" prefWidth="95.5999755859375" text="Khóa" />
+                              <TableColumn fx:id="TC_Friend" prefWidth="87.800048828125" text="Bạn bè" />
+                              <TableColumn fx:id="TC_Group" prefWidth="79.5999755859375" text="Nhóm" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
